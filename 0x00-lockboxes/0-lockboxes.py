@@ -18,7 +18,7 @@ def canUnlockAll(boxes):
     opened = [0]
     keys = []
     keys.extend(locked[0])
-    
+
     if len(locked) == 1:
         return True
 
@@ -36,6 +36,7 @@ def canUnlockAll(boxes):
         if len(opened) is len(locked):
             return True
         keys.pop(0)
+
 
 """if __name__ is "__main__":
     boxes = [[1], [2], [3], [4], []]
