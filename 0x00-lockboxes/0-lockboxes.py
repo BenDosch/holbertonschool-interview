@@ -31,7 +31,7 @@ def canUnlockAll(boxes):
             return False
     # get ready to check keys that were set asside.
         keys = [x for x in (set(new_keys)) if x not in opened
-                and x >= 0 and x < len(locked)]  
+                and x >= 0 and x < len(locked)]
         new_keys = []
 
 
