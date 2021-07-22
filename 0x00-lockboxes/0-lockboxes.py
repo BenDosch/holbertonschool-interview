@@ -21,16 +21,16 @@ def canUnlockAll(boxes):
     new_keys = []
     while True:
         for key in keys:
-            new_keys.extend(locked[key])  # Take keys out of box and add set asside
+            new_keys.extend(locked[key])  # Remove keys from box & set asside
             locked[key] = []
             opened.append(key)  # Mark box opened
 
-        if len(opened) == len(locked):  # Check if all boxes have been opened
-                return True
+        if len(opened) == len(locked):  # Check if all boxes are open
+            return True
         if new_keys == []:  # check to see if there are any more keys left
             return False
-
-        keys = [x for x in (set(new_keys)) if x not in opened]  # get ready to check keys that were set asside.
+    # get ready to check keys that were set asside.
+        keys = [x for x in (set(new_keys)) if x not in opened]  
         new_keys = []
 
 
