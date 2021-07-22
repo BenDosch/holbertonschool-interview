@@ -19,6 +19,9 @@ def canUnlockAll(boxes):
     keys = []
     keys.extend(locked[0])
     
+    if len(locked) == 1:
+        return True
+
     while True:
         if len(keys) > 0:
             key = keys[0]
