@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stdlib.h>
 
 /**
  * insert_node - inserts a node with a number into a
@@ -14,7 +13,10 @@ listint_t *insert_node(listint_t **head, int number)
 	listint_t *current = *head, *next, *new;
 
     if (*head == NULL)
-		return (NULL);
+		new = malloc(sizeof(listint_t));
+		new->n = number;
+		*head = new;
+		return (new);
 	next = current->next;
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
