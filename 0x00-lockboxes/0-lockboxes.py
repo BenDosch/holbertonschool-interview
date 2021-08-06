@@ -30,8 +30,8 @@ def canUnlockAll(boxes):
         if new_keys == []:  # check to see if there are any more keys left
             return False
     # get ready to check keys that were set asside.
-        keys = [x for x in (set(new_keys)) if x not in opened
-                and x >= 0 and x < len(locked)]
+        keys = [x for x in (set(new_keys)) if x not in opened and
+                x >= 0 and x < len(locked)]
         new_keys = []
 
 
