@@ -2,6 +2,7 @@
 """Module containing functions to solve the interview preperation question
 """
 
+
 def minOperations(n):
     """Function that calculates the fewest number of operations needed to
     result in exactly n H characters in the file.
@@ -20,6 +21,7 @@ def minOperations(n):
             return 0
         else:
             return sum(factors)
+
 
 def prime_factors(n):
     """Calculates the prime factors of a number
@@ -42,6 +44,7 @@ def prime_factors(n):
         else:
             i += 1
     return factors
+
 
 if __name__ == "__main__":
     a = prime_factors(2)
