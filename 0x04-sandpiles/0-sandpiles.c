@@ -13,7 +13,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 
 	for (row = 0; row < 3; row++)
 	{
-		for (col = 0; col < 3; col++) 
+		for (col = 0; col < 3; col++)
 			grid1[row][col] += grid2[row][col];
 	}
 	while (unstable(grid1))
@@ -78,7 +78,7 @@ int unstable(int grid[3][3])
 
 void sandpile_copy(int dest[3][3], int src[3][3]) {
 
-   int row, col;
+	int row, col;
 
 	for (row = 0; row < 3; row++)
 	{

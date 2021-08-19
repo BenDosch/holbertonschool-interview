@@ -1,5 +1,5 @@
-#ifndef SANDPILES_H     
-#define SANDPILES_H     
+#ifndef SANDPILES_H
+#define SANDPILES_H
 
 #include <stddef.h>
 #include <stdio.h>
