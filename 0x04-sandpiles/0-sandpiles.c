@@ -66,7 +66,7 @@ int unstable(int grid[3][3])
 				unstable = 1;
 		}
 	}
-	return unstable;
+	return (unstable);
 }
 
 /**
@@ -76,7 +76,8 @@ int unstable(int grid[3][3])
  * Return: void
  */
 
-void sandpile_copy(int dest[3][3], int src[3][3]) {
+void sandpile_copy(int dest[3][3], int src[3][3])
+{
 
 	int row, col;
 
