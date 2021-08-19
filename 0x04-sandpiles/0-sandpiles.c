@@ -24,7 +24,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 			   grid1[2][0], grid1[2][1], grid1[2][2]);
 
 		memset(&temp, 0, sizeof(temp));
-		for (row = 0; row < 3; row++
+		for (row = 0; row < 3; row++)
 		{
 			for (col = 0; col < 3; col++)
 			{
