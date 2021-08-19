@@ -18,15 +18,10 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
         }
     }
     while (unstable(grid1)){
-        printf("=\n%d %d %d\n%d %d %d\n%d %d %d\n",
-               grid1[0][0], grid1[0][1], grid1[0][2],
-               grid1[1][0], grid1[1][1], grid1[1][2],
-               grid1[2][0], grid1[2][1], grid1[2][2]);
 
         memset(&temp, 0, sizeof(temp));
         for (row = 0; row < 3; row++){
             for (col = 0; col < 3; col++){
-                printf("Cell[%d][%d]: grid:%d temp:%d ", row, col, grid1[row][col], temp[row][col]);
                 if (grid1[row][col] >= 4){
                     temp[row][col] += grid1[row][col] - 4;
                     if (row - 1 >= 0)
