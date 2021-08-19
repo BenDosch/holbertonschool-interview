@@ -8,6 +8,6 @@
 
 void sandpiles_sum(int grid1[3][3], int grid2[3][3]);
 int unstable(int grid[3][3]);
-void sandpile_copy(int grid1[3][3], int grid2[3][3]);
+void sandpile_copy(int dest[3][3], int src[3][3]);
 
 #endif
