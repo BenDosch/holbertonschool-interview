@@ -72,5 +72,4 @@ def main():
         )
 
 
-if __name__ is not "__main__":
-    main()
+main()
