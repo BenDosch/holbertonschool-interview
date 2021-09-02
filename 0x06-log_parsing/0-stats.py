@@ -23,6 +23,19 @@ def format_check(string):
     return bool(re.match(pattern=pattern, string=string))
 
 
+def print_codes(size, code_dict):
+    """Prints information formated per task requirments.
+
+    Args:
+        size (int): Total filesize
+        code_dict (dict): Dictionary of status code totals.
+    """
+    print("File size: {}".format(size))
+    for key, value in sorted(code_dict.items()):
+        if value > 0:
+            print("{}: {}".format(key, value))
+
+
 def main():
     """Main function for problem.
     """
@@ -39,37 +52,13 @@ def main():
                     status_codes["{}".format(line_parts[-2])] += 1
             if count >= 9:
                 count = 0
-                print("File size: {}".format(total_size))
-                print(
-                    "200: {}\n401: {}\n403: {}\n404: {}\n405: {}\n500: {}"
-                    .format(
-                        status_codes["200"], status_codes["401"],
-                        status_codes["403"], status_codes["404"],
-                        status_codes["405"], status_codes["500"]
-                    )
-                )
+                print_codes(total_size, status_codes)
             else:
                 count += 1
-        print("File size: {}".format(total_size))
-        print(
-            "200: {}\n401: {}\n403: {}\n404: {}\n405: {}\n500: {}"
-            .format(
-                status_codes["200"], status_codes["401"],
-                status_codes["403"], status_codes["404"],
-                status_codes["405"], status_codes["500"]
-            )
-        )
-        
+        print_codes(total_size, status_codes)
+
     except KeyboardInterrupt:
-        print("File size: {}".format(total_size))
-        print(
-            "200: {}\n401: {}\n403: {}\n404: {}\n405: {}\n500: {}"
-            .format(
-                status_codes["200"], status_codes["401"],
-                status_codes["403"], status_codes["404"],
-                status_codes["405"], status_codes["500"]
-            )
-        )
+        print_codes(total_size, status_codes)
 
 
 if __name__ is not "__main__":
