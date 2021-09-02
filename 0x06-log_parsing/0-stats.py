@@ -22,6 +22,7 @@ def format_check(string):
                ":\d+\.\d+\]\s\"GET\s/projects/260\sHTTP/1.1\"\s\d\d\d\s\d+")
     return bool(re.match(pattern=pattern,string=string))
 
+
 def main():
     """Main function for problem.
     """
