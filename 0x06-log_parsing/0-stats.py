@@ -7,7 +7,6 @@ import sys
 import re
 
 
-
 def format_check(string):
     """Function that checks if the format of a string matches
     <IP Address> - [<date>] "GET /pjts/260 HTTP/1.1" <status code> <file size>
