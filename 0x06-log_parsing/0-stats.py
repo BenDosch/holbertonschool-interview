@@ -56,6 +56,12 @@ def main():
                     status_codes["405"], status_codes["500"]
                 )
             )
+    print("File size: {}".format(total_size))
+    print("200: {}\n401: {}\n403: {}\n404: {}\n405: {}\n500: {}"
+        .format(status_codes["200"], status_codes["401"],
+        status_codes["403"], status_codes["404"], 
+        status_codes["405"], status_codes["500"]
+    ))
 
 
 if __name__  is not "__main__":
