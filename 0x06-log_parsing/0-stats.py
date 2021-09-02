@@ -1,4 +1,4 @@
-#!/uer/bin/env python3
+#!/uer/bin/python3
 """Module containig work for a Holberton interview prep question on log
 parsing.
 """
