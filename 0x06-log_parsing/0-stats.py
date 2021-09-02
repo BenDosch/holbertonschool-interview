@@ -1,75 +1,43 @@
 #!/usr/bin/python3
-"""Module containig work for a Holberton interview prep question on log
-parsing.
-"""
-
+""" script that reads stdin line by line and computes metrics"""
 import sys
-import re
 
 
-def format_check(string):
-    """Function that checks if the format of a string matches
-    <IP Address> - [<date>] "GET /pjts/260 HTTP/1.1" <status code> <file size>
+def print_info(total_size, status_counts):
+    print("File size: {}".format(total_size))
+    for key, value in sorted(status_counts.items()):
+        if value > 0:
+            print("{}: {}".format(key, value))
 
-    Args:
-        string (str): String to check formating of.
-
-    Returns:
-        True if stiring matches the format, else False.
-    """
-
-    pattern = ("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s-\s\[\d+-\d+-\d+\s\d+:" +
-               "\d+:\d+\.\d+\]\s\"GET\s/projects/260\sHTTP/1.1\"\s\d\d\d\s\d+")
-    return bool(re.match(pattern=pattern, string=string))
-
-
-def main():
-    """Main function for problem.
-    """
-    status_codes = {"200": 0, "301": 0, "400": 0, "401": 0,
-                    "403": 0, "404": 0, "405": 0, "500": 0}
-    count = 0
+try:
+    line_count = -1
+    status_counts = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0,
+                     '404': 0, '405': 0, '500': 0}
+    valid_codes = [200, 301, 400, 401, 403, 404, 405, 500]
     total_size = 0
-    try:
-        for line in sys.stdin:
-            if format_check(line):
-                line_parts = line.split()
-                total_size += int(line_parts[-1])
-                if line_parts[-2] in status_codes.keys():
-                    status_codes["{}".format(line_parts[-2])] += 1
-            if count >= 9:
-                count = 0
-                print("File size: {}".format(total_size))
-                print(
-                    "200: {}\n401: {}\n403: {}\n404: {}\n405: {}\n500: {}"
-                    .format(
-                        status_codes["200"], status_codes["401"],
-                        status_codes["403"], status_codes["404"],
-                        status_codes["405"], status_codes["500"]
-                    )
-                )
-            else:
-                count += 1
-        print("File size: {}".format(total_size))
-        print(
-            "200: {}\n401: {}\n403: {}\n404: {}\n405: {}\n500: {}"
-            .format(
-                status_codes["200"], status_codes["401"],
-                status_codes["403"], status_codes["404"],
-                status_codes["405"], status_codes["500"]
-            )
-        )
-        
-    except KeyboardInterrupt:
-        print("File size: {}".format(total_size))
-        print(
-            "200: {}\n401: {}\n403: {}\n404: {}\n405: {}\n500: {}"
-            .format(
-                status_codes["200"], status_codes["401"],
-                status_codes["403"], status_codes["404"],
-                status_codes["405"], status_codes["500"]
-            )
-        )
 
+    for line in sys.stdin:
+        line_count += 1
+        if line_count == 10:
+            print_info(total_size, status_counts)
+            line_count = 0
 
-main()
+        line_parts = line.split()
+
+        try:
+            int(line_parts[-2])
+            if int(line_parts[-2]) in valid_codes:
+                status_counts[line_parts[-2]] += 1
+        except (ValueError, IndexError):
+            pass
+
+        try:
+            int(line_parts[-1])
+            total_size += int(line_parts[-1])
+        except (ValueError, IndexError):
+            pass
+
+    print_info(total_size, status_counts)
+
+except KeyboardInterrupt:
+    print_info(total_size, status_counts)
