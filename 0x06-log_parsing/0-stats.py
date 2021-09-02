@@ -18,9 +18,9 @@ def format_check(string):
         True if stiring matches the format, else False.
     """
 
-    pattern = ("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s-\s\[\d+-\d+-\d+\s\d+:\d+" +
-               ":\d+\.\d+\]\s\"GET\s/projects/260\sHTTP/1.1\"\s\d\d\d\s\d+")
-    return bool(re.match(pattern=pattern,string=string))
+    pattern = ("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s-\s\[\d+-\d+-\d+\s\d+:" +
+               "\d+:\d+\.\d+\]\s\"GET\s/projects/260\sHTTP/1.1\"\s\d\d\d\s\d+")
+    return bool(re.match(pattern=pattern, string=string))
 
 
 def main():
@@ -40,30 +40,36 @@ def main():
             if count >= 9:
                 count = 0
                 print("File size: {}".format(total_size))
-                print("200: {}\n401: {}\n403: {}\n404: {}\n405: {}\n500: {}"
-                        .format(status_codes["200"], status_codes["401"],
-                            status_codes["403"], status_codes["404"], 
-                            status_codes["405"], status_codes["500"]
-                        )
+                print(
+                    "200: {}\n401: {}\n403: {}\n404: {}\n405: {}\n500: {}"
+                    .format(
+                        status_codes["200"], status_codes["401"],
+                        status_codes["403"], status_codes["404"],
+                        status_codes["405"], status_codes["500"]
                     )
+                )
             else:
                 count += 1
     finally:
         print("File size: {}".format(total_size))
-        print("200: {}\n401: {}\n403: {}\n404: {}\n405: {}\n500: {}"
-                .format(status_codes["200"], status_codes["401"],
-                    status_codes["403"], status_codes["404"], 
-                    status_codes["405"], status_codes["500"]
-                )
+        print(
+            "200: {}\n401: {}\n403: {}\n404: {}\n405: {}\n500: {}"
+            .format(
+                status_codes["200"], status_codes["401"],
+                status_codes["403"], status_codes["404"],
+                status_codes["405"], status_codes["500"]
             )
+        )
     print("File size: {}".format(total_size))
-    print("200: {}\n401: {}\n403: {}\n404: {}\n405: {}\n500: {}"
-        .format(status_codes["200"], status_codes["401"],
-        status_codes["403"], status_codes["404"], 
-        status_codes["405"], status_codes["500"]
-    ))
+    print(
+        "200: {}\n401: {}\n403: {}\n404: {}\n405: {}\n500: {}"
+        .format(
+            status_codes["200"], status_codes["401"],
+            status_codes["403"], status_codes["404"],
+            status_codes["405"], status_codes["500"]
+        )
+    )
 
 
-if __name__  is not "__main__":
+if __name__ is not "__main__":
     main()
-    # 153.228.230.189 - [2021-08-31 18:17:00.695576] "GET /projects/260 HTTP/1.1" 405 825
