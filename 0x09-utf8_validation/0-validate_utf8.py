@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Module containig"""
+"""Module containing a function that checks if a list of ints is a valid
+utf8 character"""
+
 
 def validUTF8(data):
     """[summary]
@@ -12,9 +14,10 @@ def validUTF8(data):
         bi_str = format(each, '#010b')[-8:]
         if n_bytes == 0:
             for bit in bi_str:
-                if bit == '0': break
+                if bit == '0':
+                    break
                 n_bytes += 1
-                
+
             if n_bytes == 0:
                 continue
 
