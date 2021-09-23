@@ -12,6 +12,7 @@ def validUTF8(data):
     n_bytes = 0
     for each in data:
         bi_str = format(each, '#010b')[-8:]
+        print(bi_str)
         if n_bytes == 0:
             for bit in bi_str:
                 if bit == '0':
@@ -27,4 +28,4 @@ def validUTF8(data):
             if not (bi_str[0] == '1' and bi_str[1] == '0'):
                 return False
         n_bytes -= 1
-    return True
+    return (n_bytes == 0)
