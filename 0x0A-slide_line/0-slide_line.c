@@ -38,10 +38,8 @@ int slide_right(int *line, size_t size){
 
     for (i = final_index; i > 0; i--){
         j = i - 1;
-        while (!line[j] && j >= 0)
+        while (!line[j])
             j--;
-        if (j == -1)
-            break;
         if (!line[i]){
             line[i] = line[j];
             line[j] = 0;
@@ -72,8 +70,7 @@ int slide_right(int *line, size_t size){
  */
 
 int slide_left(int *line, size_t size){
-    int i, j;
-    size_t final_index = size - 1;
+    size_t final_index = size - 1, i, j;
 
     for (i = 0; i < final_index; i++){
         j = i + 1;
