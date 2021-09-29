@@ -38,12 +38,16 @@ int slide_right(int *line, size_t size){
 
     for (i = final_index; i > 0; i--){
         j = i - 1;
-        while (!line[j])
+        while (!line[j] && j)
             j--;
         if (!line[i]){
-            line[i] = line[j];
-            line[j] = 0;
-            i++;
+            if (!line[j] && !line[i])
+                continue;
+            else {
+                line[i] = line[j];
+                line[j] = 0;
+                i++;
+            }
         }
         else if (line[i]){
             if (line[i] == line[j]){
