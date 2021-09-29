@@ -17,7 +17,7 @@ int slide_line(int *line, size_t size, int direction){
             return (slide_right(line, size));
         }
         else if (direction == SLIDE_LEFT){
-            return (slide_right(line, size));
+            return (slide_left(line, size));
         }
     }
     return (0);
