@@ -1,6 +1,6 @@
 # Menger sponge
 
-1. [Requirements](#references)
+1. [Requirements](#requirements)
 2. [Tasks](#tasks)
 	1. [2D Menger sponge](#0-2d-menger-sponge)
 3. [Author](#author)
