@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Module for solving the N queens problem"""
 
 import sys
@@ -79,15 +79,15 @@ def print_queens(board):
 def main():
     if len(sys.argv) < 2:
         print("Usage: nqueens N")
-        exit(code=1)
+        return
     N = sys.argv[1]
     if not N.isdigit():
         print("N must be a number")
-        exit(code=1)
+        return
     N = int(N)
     if N < 4:
         print("N must be at least 4")
-        exit(code=1)
+        return
     solve(N)
 
 
