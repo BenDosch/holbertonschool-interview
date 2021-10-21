@@ -64,6 +64,7 @@ def draw_board(board):
         print(*row, sep=" ")
     print("")
 
+
 def print_queens(board):
     """Prints the row and column of each queen on a board for a possible
     soultion."""
@@ -73,6 +74,7 @@ def print_queens(board):
             if board[row][column] == " Q ":
                 queens.append([row, column])
     print(queens)
+
 
 def main():
     if len(sys.argv) < 2:
@@ -87,7 +89,7 @@ def main():
         print("N must be at least 4")
         return
     solve(N)
-    
+
 
 if __name__ == "__main__":
     main()
