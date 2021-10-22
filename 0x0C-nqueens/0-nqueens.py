@@ -65,8 +65,6 @@ def draw_board(board):
 
 
 def print_queens(board):
-    """Prints the row and column of each queen on a board for a possible
-    soultion."""
     queens = []
     for row in range(len(board)):
         for column in range(len(board[row])):
