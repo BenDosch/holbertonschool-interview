@@ -55,34 +55,22 @@ def nqueens(size, board=[]):
         newBoard = board.union((position,))
         yield from nqueens(size, newBoard)
 
-
-if __name__ == "__main__":
+def main():
     sols = 0
-    try:
-        args = len(sys.argv)
-
-    # no arg passed for size
-    except Exception:
+    if len(sys.argv) < 2:
         print("Usage: nqueens N")
-        exit(1)
-
-    try:
-        size = int(sys.argv[1])
-
-    except IndexError:
-        '''When arg not a number'''
-        print("Usage: nqueens N")
-        exit(1)
-    except ValueError:
+        return
+    N = sys.argv[1]
+    if N.isdigit() is not True:
         print("N must be a number")
-        exit(1)
-
-    if(args == 0 | args > 2):
-        print("Usage: nqueens N")
-        exit(1)
-    if(size < 4):
+        return
+    N = int(N)
+    if N < 4:
         print("N must be at least 4")
-        exit(1)
-    cells = list(nqueens(size))
+        return
+    cells = list(nqueens(N))
     for solution in cells:
         print([list(sols) for sols in solution])
+
+if __name__ == "__main__":
+    main()
