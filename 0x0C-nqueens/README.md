@@ -17,7 +17,7 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 ## Tasks
 List of tasks with brief descriptions of each task.
 
-### [0. N queens]("https://github.com/BenDoschGit/holbertonschool-machine_learning/blob/main/supervised_learning/s/0-nqueens.py "0. N queens")
+### [0. N queens](https://github.com/BenDoschGit/holbertonschool-interview/blob/main/0x0C-nqueens/0-nqueens.py "0. N queens")
 
 The N queens puzzle is the challenge of placing N non-attacking queens on an N×N chessboard. Write a program that solves the N queens problem.
 
