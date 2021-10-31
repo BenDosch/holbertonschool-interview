@@ -53,7 +53,7 @@ avl_t *branching(avl_t *tree, int *array, int start, int end)
         return (NULL);
 
 	tree->left = branching(tree, array, start, (middle - 1));
-	tree->right = branching(tree, array, (middle + 1), e);
+	tree->right = branching(tree, array, (middle + 1), end);
 
 	return (tree);
 }
