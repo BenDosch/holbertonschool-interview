@@ -17,9 +17,7 @@ request(options, async function (error, response, body) {
     for (const people of Characters) {
       await new Promise(function (resolve, reject) {
         request(people, function (error, response, body) {
-          if (error) reject(error) {
-            console.log(error);
-          }
+          if (error) reject(error);
           console.log(JSON.parse(body).name);
           resolve();
         });
