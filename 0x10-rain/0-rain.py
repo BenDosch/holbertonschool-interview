@@ -42,7 +42,7 @@ def rain(walls):
     # print("height: {} width: {} water: {}".format(height, width, water))
     # Return water found and recurse on list of walls to left and right of 
     # the walls found.
-    return water + rain(walls[:left + 1]) + rain(walls[right])
+    return water + rain(walls[:left + 1]) + rain(walls[right:])
 
 
 if __name__ == "__main__":
@@ -50,9 +50,12 @@ if __name__ == "__main__":
     print(rain(walls))
     walls = [2, 0, 0, 4, 0, 0, 1, 0]
     print(rain(walls))
+    walls = [1, 1, 2, 0, 1, 1, 1]
+    print(rain(walls))
 
 # Expected output
 """
 6
 6
+1
 """
