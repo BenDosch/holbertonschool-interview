@@ -23,10 +23,10 @@ def rain(walls):
         elif walls[i] > tallest_2:
             tallest_2 = i
 
-    print("{}".format(walls))
-    print("tallest: {}->{} tallest_2: {}->{}".format(
+    # print("{}".format(walls))
+    """print("tallest: {}->{} tallest_2: {}->{}".format(
         tallest, walls[tallest], tallest_2, walls[tallest_2])
-        )
+        )"""
     # Check that there were 2 walls to retain rain.
     if walls[tallest] == 0 or walls[tallest_2] == 0:
         return 0
@@ -34,12 +34,12 @@ def rain(walls):
     left = min((tallest, tallest_2))
     right = max((tallest, tallest_2))
     filler = sum(walls[left + 1: right])
-    print("filler: {}".format(filler))
+    # print("filler: {}".format(filler))
     # Get dimensions of space between walls and calculate water inside.
     height = min((walls[tallest], walls[tallest_2]))
     width = right - left - 1
     water = (height * width) - filler
-    print("height: {} width: {} water: {}".format(height, width, water))
+    # print("height: {} width: {} water: {}".format(height, width, water))
     # Return water found and recurse on list of walls to left and right of 
     # the walls found.
     return water + rain(walls[:left + 1]) + rain(walls[right])
