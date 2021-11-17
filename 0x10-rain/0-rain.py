@@ -11,10 +11,10 @@ def rain(walls):
     of a relief map, calculate how many square units of water will be retained
     after it rains."""
     # Check input
-    if (not isinstance(walls, list) or len(walls) < 2):
+    if (not isinstance(walls, list) or len(walls) <= 2):
         return 0
     # Set  initial values.
-    tallest, tallest_2 = walls[0], len(walls) - 1
+    tallest, tallest_2 = 0, len(walls) - 1
     # Find 2 tallest walls.
     for i in range(len(walls)):
         if walls[i] >= walls[tallest]:
@@ -40,7 +40,7 @@ def rain(walls):
     width = right - left - 1
     water = (height * width) - filler
     # print("height: {} width: {} water: {}".format(height, width, water))
-    # Return water found and recurse on list of walls to left and right of 
+    # Return water found and recurse on list of walls to left and right of
     # the walls found.
     return water + rain(walls[:left + 1]) + rain(walls[right:])
 
