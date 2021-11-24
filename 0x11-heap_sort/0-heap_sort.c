@@ -12,9 +12,7 @@
 void heapify(int *array, size_t size, size_t root, size_t n)
 {
 	int temp;
-	size_t largest=root;
-	size_t left = (2 * root) + 1;
-	size_t right = (2 * root) + 2;
+	size_t largest = root, left = (2 * root) + 1, right = (2 * root) + 2;
 
 	if (left < size && array[left] > array[largest])
 		largest = left;
