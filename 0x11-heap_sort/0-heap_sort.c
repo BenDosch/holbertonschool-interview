@@ -1,58 +1,63 @@
 #include "sort.h"
 
 /**
- * downsift - the downsift method for heap ort
- * @a: the array being heapified
- * @n: starting index for array
- * @i: ending index for array
- * @size: size for printing references
- * Return: void no return
+ * heapify - makes an array into a heap
+ *
+ * @array: array to turn into a heap
+ * @size: size of array passed
+ * @root: parent node to swap with leaves if lesser
+ * @n: total size of array to print
  */
 
-void downsift(int *a, int n, int i, size_t size)
+void heapify(int *array, size_t size, size_t root, size_t n)
 {
-	int m = i;
-	int l = 2 * i + 1;
-	int r = 2 * i + 2;
-	int t;
+	int temp;
+	size_t largest=root;
+	size_t left = (2 * root) + 1;
+	size_t right = (2 * root) + 2;
 
-	if (l < n && a[l] > a[m])
-		m = l;
-	if (r < n && a[r] > a[m])
-		m = r;
+	if (left < size && array[left] > array[largest])
+		largest = left;
 
-	if (m != i)
+	if (right < size && array[right] > array[largest])
+		largest = right;
+
+	if (largest != root)
 	{
-		t = a[i];
-		a[i] = a[m];
-		a[m] = t;
-		print_array(a, size);
-		downsift(a, n, m, size);
+		temp = array[root];
+		array[root] = array[largest];
+		array[largest] = temp;
+
+		print_array(array, n);
+
+		heapify(array, size, largest, n);
 	}
 }
 
 /**
- * heap_sort - performs the heap sort on an array
- * @array: The array being heap sorted
- * @size: the size of the array
- * Return: void, no return
+ * heap_sort - sorts an array of integers in ascending order using the
+ * sift-down Heap sort algorithm.
+ *
+ * @array: array to sort
+ * @size: size of array
  */
 
 void heap_sort(int *array, size_t size)
 {
-	int i, t, n = size;
+	int i, temp;
 
-	if (!array || size < 2)
-		return;
-	for (i = (n - 2) / 2; i >= 0; i--)
-		downsift(array, n, i, size);
-	for (i = (n - 1); i >= 0; i--)
+	for (i = (size / 2) - 1; i >= 0; i--)
+		heapify(array, size, i, size);
+
+	for (i = (size - 1); i >= 0; i--)
 	{
-		t = array[0];
+		temp = array[0];
 		array[0] = array[i];
-		array[i] = t;
+		array[i] = temp;
+
 		if (i != 0)
 			print_array(array, size);
-		downsift(array, i, 0, size);
+
+		heapify(array, i, 0, size);
 	}
 }
