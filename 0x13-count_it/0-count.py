@@ -46,7 +46,7 @@ def count_words(subreddit, word_list, after=None):
         ]
     for title in titles:
         for word in word_list:
-            hot_dict[word] += title.count(word)
+            hot_dict[word] += title.split().count(word)
 
     checkpoint = about_json.json()['data']['after']
     if checkpoint is None:
