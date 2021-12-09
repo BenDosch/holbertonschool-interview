@@ -57,7 +57,7 @@ def count_words(subreddit, word_list, after=None):
             for word in hot_dict:
                 hot_dict[word] += returned_dict[word]
     if after is None:
-        sort = sorted(hot_dict.items(), reverse=True, key=lambda x: x[1])
+        sort = sorted(hot_dict.items(), key=lambda x: x[1])
         for v in sort:
             if v[1] == 0:
                 break
