@@ -20,7 +20,7 @@ def count_words(subreddit, word_list, after=None):
     Returns:
         None
     """
-    hot_dict = {x: 0 for x in word_list}
+    hot_dict = {x.lower(): 0 for x in word_list}
     # Set up url's
     reddit_url = 'https://reddit.com/'
     sub_url = reddit_url + 'r/' + subreddit
@@ -46,23 +46,24 @@ def count_words(subreddit, word_list, after=None):
         ]
     for title in titles:
         for word in word_list:
-            hot_dict[word] += title.split().count(word)
+            hot_dict[word] += title.lower().split().count(word)
 
     checkpoint = about_json.json()['data']['after']
-    if checkpoint is None:
-        return None
-    else:
+    
+    if checkpoint is not None:
         returned_dict = count_words(subreddit, word_list, checkpoint)
         if returned_dict is not None:
             for word in hot_dict:
                 hot_dict[word] += returned_dict[word]
-    if after is None:
-        sort = sorted(hot_dict.items(), reverse=True, key=lambda x: x[1])
-        for v in sort:
-            if v[1] == 0:
-                break
-            print(v[0] + ": " + str(v[1]))
-    return hot_dict
+        if after is None:
+            sort = sorted(hot_dict.items(), reverse=True, key=lambda x: x[1])
+            for v in sort:
+                if v[1] == 0:
+                    break
+                print(v[0] + ": " + str(v[1]))
+        return hot_dict
+
+    return None
 
 
 if __name__ == "__main__":
