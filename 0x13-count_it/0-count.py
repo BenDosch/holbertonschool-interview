@@ -20,7 +20,7 @@ def count_words(subreddit, word_list, after=None):
     Returns:
         None
     """
-    word_list = [x.word_list for x in word_list]
+    word_list = [x.lower() for x in word_list]
     hot_dict = {x: 0 for x in word_list}
     # Set up url's
     reddit_url = 'https://reddit.com/'
