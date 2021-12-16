@@ -21,7 +21,7 @@ int heap_extract(heap_t **root)
 	if (get_height(*root) == 1)
 	{
 		free(*root);
-		*root == NULL;
+		root == NULL;
 		return (max);
 	}
 
