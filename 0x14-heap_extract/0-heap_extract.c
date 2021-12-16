@@ -19,13 +19,19 @@ int heap_extract(heap_t **root)
 	max = (*root)->n;
 
 	if (get_height(*root) == 1)
+	{
 		free(*root);
 		return (max);
+	}
 
 	last = find_last(*root);
-	printf("\n%d\n", last->n);
 
 	(*root)->n = last->n;
+	
+	if (last->parent->right == last)
+			last->parent->right = NULL;
+	else
+		last->parent->left = NULL;
 	free(last);
 
 	fix_heap(*root);
