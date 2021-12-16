@@ -19,6 +19,7 @@ int heap_extract(heap_t **root)
 	max = (*root)->n;
 
 	if (get_height(*root) == 1)
+		free(*root);
 		return (max);
 
 	last = find_last(*root);
@@ -84,19 +85,25 @@ heap_t *find_last(heap_t *node)
 
 void fix_heap(heap_t *node)
 {
-	int temp;
-	heap_t *max;
+	int tmp;
+	heap_t *max = node;
 
-	if (node->left == NULL && node->right == NULL)
-		return;
+	if (node->left != NULL && node->left->n >= max->n)
+		max = node->left;
 
-	max = node->left;
+	if (node->right != NULL)
+	{
+		if (max == node->left && node->right->n > max->n)
+			max = node->right;
+		else if (node->right->n >= max->n)
+			max = node->right;
+	}
 
-	if (node->right && node->right->n > max->n)
-		max = node->right;
-
-	temp = node->n;
-	node->n = max->n;
-	max->n = temp;
-	fix_heap(max);
+	if (max != node)
+	{
+		tmp = node->n;
+		node->n = max->n;
+		max->n = tmp;
+		fix_heap(max);
+	}
 }
