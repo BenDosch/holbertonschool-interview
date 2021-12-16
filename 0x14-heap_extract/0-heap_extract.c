@@ -30,7 +30,7 @@ int heap_extract(heap_t **root)
 	(*root)->n = last->n;
 
 	if (last->parent->right == last)
-			last->parent->right = NULL;
+		last->parent->right = NULL;
 	else
 		last->parent->left = NULL;
 	free(last);
