@@ -10,25 +10,25 @@
 
 int heap_extract(heap_t **root)
 {
-    int max;
-    heap_t *last;
+	int max;
+	heap_t *last;
 
-    if (root == NULL || *root == NULL)
-        return (0);
+	if (root == NULL || *root == NULL)
+		return (0);
 
-    max = (*root)->n;
+	max = (*root)->n;
 
-    if (get_height(*root) == 1)
-        return (max);
+	if (get_height(*root) == 1)
+		return (max);
 
-    last = find_last(*root);
+	last = find_last(*root);
 
-    (*root)->n = last->n;
-    free(last);
+	(*root)->n = last->n;
+	free(last);
 
-    fix_heap(*root);
+	fix_heap(*root);
 
-    return (max);
+	return (max);
 }
 
 
@@ -42,13 +42,13 @@ int heap_extract(heap_t **root)
 
 int get_height(heap_t *node)
 {
-    int height;
+	int height;
 
-    if (node == NULL)
-        return (0);
+	if (node == NULL)
+		return (0);
 
-    height = get_height(node->left);
-    return (height + 1);
+	height = get_height(node->left);
+	return (height + 1);
 }
 
 /**
@@ -61,17 +61,17 @@ int get_height(heap_t *node)
 
 heap_t *find_last(heap_t *node)
 {
-    int lh = 0, rh = 0;
+	int lh = 0, rh = 0;
 
-    if (node->left == NULL && node->right == NULL)
-        return (node);
-    if (node->left)
-        lh = get_height(node->left);
-    if (node->right)
-        rh = get_height(node->right);
-    if (rh == lh)
-        return (find_last(node->right));
-    return (find_last(node->left));
+	if (node->left == NULL && node->right == NULL)
+		return (node);
+	if (node->left)
+		lh = get_height(node->left);
+	if (node->right)
+		rh = get_height(node->right);
+	if (rh == lh)
+		return (find_last(node->right));
+	return (find_last(node->left));
 }
 
 /**
@@ -84,19 +84,19 @@ heap_t *find_last(heap_t *node)
 
 void fix_heap(heap_t *node)
 {
-    int temp;
-    heap_t *max;
+	int temp;
+	heap_t *max;
 
-    if (node->left == NULL && node->right == NULL)
-        return;
+	if (node->left == NULL && node->right == NULL)
+		return;
 
-    max = node->left;
+	max = node->left;
 
-    if (node->right && node->right->n > max->n)
-        max = node->right;
+	if (node->right && node->right->n > max->n)
+		max = node->right;
 
-    temp = node->n;
-    node->n = max->n;
-    max->n = temp;
-    fix_heap(max);
+	temp = node->n;
+	node->n = max->n;
+	max->n = temp;
+	fix_heap(max);
 }
