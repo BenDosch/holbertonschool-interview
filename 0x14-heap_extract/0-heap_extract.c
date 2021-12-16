@@ -25,9 +25,9 @@ int heap_extract(heap_t **root)
 	last = find_last(*root);
 
 	(*root)->n = last->n;
-	free(last);
 
 	fix_heap(*root);
+	free(last);
 
 	return (max);
 }
