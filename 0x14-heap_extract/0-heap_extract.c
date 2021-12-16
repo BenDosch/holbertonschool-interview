@@ -21,13 +21,14 @@ int heap_extract(heap_t **root)
 	if (get_height(*root) == 1)
 	{
 		free(*root);
+		*root == NULL;
 		return (max);
 	}
 
 	last = find_last(*root);
 
 	(*root)->n = last->n;
-	
+
 	if (last->parent->right == last)
 			last->parent->right = NULL;
 	else
