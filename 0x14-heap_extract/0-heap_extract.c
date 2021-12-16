@@ -17,7 +17,7 @@ int heap_extract(heap_t **root){
     
     max = (*root)->n;
     
-    if (get_height(*root) == 1);
+    if (get_height(*root) == 1)
         return (max);
         
     last = find_last(*root);
