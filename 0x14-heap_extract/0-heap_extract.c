@@ -23,11 +23,12 @@ int heap_extract(heap_t **root)
 		return (max);
 
 	last = find_last(*root);
+	printf("\n%d\n", last->n);
 
 	(*root)->n = last->n;
+	free(last);
 
 	fix_heap(*root);
-	free(last);
 
 	return (max);
 }
