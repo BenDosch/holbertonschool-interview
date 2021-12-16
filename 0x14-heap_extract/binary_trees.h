@@ -29,7 +29,4 @@ int get_height(heap_t *node);
 heap_t *find_last(heap_t *node);
 void fix_heap(heap_t *node);
 
-static int print_t(const binary_tree_t *tree, int offset, int depth, char **s);
-
-
 #endif /* _BINARY_TREES_H_ */
