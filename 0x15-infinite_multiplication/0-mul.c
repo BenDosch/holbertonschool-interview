@@ -112,7 +112,7 @@ void inf_mul(char *num1, unsigned long len1, char *num2, unsigned long len2)
 	int digit_1, digit_2, carry;
 	unsigned long i, j, k;
 
-	product = malloc(sizeof(char) * [len1 + len2 + 1]);
+	product = malloc(sizeof(char) * (len1 + len2 + 1));
 
 	for (i = 0; i < len1 + len2; i++)
 		product[i] = '0' - 48;
