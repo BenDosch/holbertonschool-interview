@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	if (len1 == 0 || len2 == 0)
 	{
 		print_str("0");
-		return;
+		return (1);
 	}
 
 	while (argv[1][i] == '0')
@@ -108,9 +108,11 @@ unsigned long get_len(char *str)
 
 void inf_mul(char *num1, unsigned long len1, char *num2, unsigned long len2)
 {
-	char product[len1 + len2 + 1];
+	char *product;
 	int digit_1, digit_2, carry;
 	unsigned long i, j, k;
+
+	product = malloc(sizeof(char) * [len1 + len2 + 1]);
 
 	for (i = 0; i < len1 + len2; i++)
 		product[i] = '0' - 48;
