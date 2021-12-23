@@ -144,7 +144,7 @@ void inf_mul(char *num1, unsigned long len1, char *num2, unsigned long len2)
 
 	for (; product[i] != '\0'; i++)
 		_putchar(product[i]);
-	
+
 	_putchar('\n');
 	free(product);
 }
