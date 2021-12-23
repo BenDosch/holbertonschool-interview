@@ -5,7 +5,7 @@
 * @argc: Number of arguments passed to program.
 * @argv: List of arguments passed to program.
 *
-* Returns: 1 on sucess.
+* Returns: 0 on sucess.
 */
 
 int main(int argc, char *argv[])
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	if (len1 == 0 || len2 == 0)
 	{
 		print_str("0");
-		return (1);
+		return (0);
 	}
 
 	while (argv[1][i] == '0')
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 	num2 = argv[2] + j;
 
 	inf_mul(num1, len1, num2, len2);
-	return (1);
+	return (0);
 }
 
 /**
