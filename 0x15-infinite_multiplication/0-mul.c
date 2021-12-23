@@ -72,23 +72,23 @@ unsigned long get_len(char *str)
 {
 	unsigned long i = 0, len = 0;
 
-	while(str[i] == '0')
+	while (str[i] == '0')
 		i++;
 
 	if (str[i] == '\0' && i != 0)
 		return (0);
 
-	if (str[i] =='\0' && i == 0)
+	if (str[i] == '\0' && i == 0)
 	{
 		print_str("Error");
 		exit(98);
 	}
 
-	while(str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 		i++, len++;
 
 	if (str[i] == '\0')
-		return len;
+		return (len);
 
 	print_str("Error");
 	exit(98);
@@ -113,21 +113,19 @@ void inf_mul(char *num1, unsigned long len1, char *num2, unsigned long len2)
 	unsigned long i, j, k;
 
 	product = malloc(sizeof(char) * (len1 + len2 + 1));
-
 	for (i = 0; i < len1 + len2; i++)
 		product[i] = '0' - 48;
 
 	product[len1 + len2] = '\0';
-
-	for (i = 0,  carry = 0; i < len1 ;i++)
+	for (i = 0,  carry = 0; i < len1 ; i++)
 	{
 		digit_1 = num1[len1 - i - 1] - 48;
-
 		for (j = 0; j < len2; j++)
 		{
 			digit_2 = num2[len2 - j - 1] - 48;
 			product[len1 + len2 - i - j - 1] += (digit_1 * digit_2) % 10;
-			carry = ((digit_1 * digit_2) / 10) + (product[len1 + len2 - i - j - 1] / 10);
+			carry = (((digit_1 * digit_2) / 10) +
+				(product[len1 + len2 - i - j - 1] / 10));
 			product[len1 + len2 - i - j - 1] %= 10;
 			for (k = 2; carry > 0; k++)
 			{
@@ -139,11 +137,13 @@ void inf_mul(char *num1, unsigned long len1, char *num2, unsigned long len2)
 	}
 
 	for (i = 0; i < len1 + len2; i++)
-			product[i] += 48;
+		product[i] += 48;
 
 	for (i = 0; product[i] == '0'; i++)
 		continue;
 
-	for (;product[i] != '\0'; i++)
+	for (; product[i] != '\0'; i++)
 		_putchar(product[i]);
+	
+	free(product);
 }
