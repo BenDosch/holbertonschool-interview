@@ -5,7 +5,7 @@
 * @argc: Number of arguments passed to program.
 * @argv: List of arguments passed to program.
 *
-* Returns: 0 on sucess.
+* Return: 0 on sucess.
 */
 
 int main(int argc, char *argv[])
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 * print_str - Prints a string.
 * @str: Pointer to first character of string to print.
 *
-* Returns: void
+* Return: void
 */
 
 void print_str(char *str)
@@ -65,7 +65,7 @@ void print_str(char *str)
 *
 * @str: pointer to first charcter of a string.
 *
-* Returns: Length of valid string.
+* Return: Length of valid string.
 */
 
 unsigned long get_len(char *str)
@@ -103,7 +103,7 @@ unsigned long get_len(char *str)
  * @num2: Second number to multiply
  * @len2: Length of second number.
  *
- * Returns: void.
+ * Return: void.
  */
 
 void inf_mul(char *num1, unsigned long len1, char *num2, unsigned long len2)
@@ -145,5 +145,6 @@ void inf_mul(char *num1, unsigned long len1, char *num2, unsigned long len2)
 	for (; product[i] != '\0'; i++)
 		_putchar(product[i]);
 	
+	_putchar('\n');
 	free(product);
 }
