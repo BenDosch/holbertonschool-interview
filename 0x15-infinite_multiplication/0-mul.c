@@ -5,10 +5,10 @@
 * @argc: Number of arguments passed to program.
 * @argv: List of arguments passed to program.
 *
-* Returns: void
+* Returns: 1 on sucess.
 */
 
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	unsigned long len1, len2, i = 0, j = 0;
 	char *num1, *num2;
@@ -38,6 +38,7 @@ void main(int argc, char *argv[])
 	num2 = argv[2] + j;
 
 	inf_mul(num1, len1, num2, len2);
+	return (1);
 }
 
 /**
@@ -86,7 +87,7 @@ unsigned long get_len(char *str)
 	while(str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 		i++, len++;
 
-	if (str[i] == '\0');
+	if (str[i] == '\0')
 		return len;
 
 	print_str("Error");
@@ -105,11 +106,11 @@ unsigned long get_len(char *str)
  * Returns: void.
  */
 
-char * inf_mul(char *num1, unsigned long len1, char *num2, unsigned long len2)
+void inf_mul(char *num1, unsigned long len1, char *num2, unsigned long len2)
 {
 	char product[len1 + len2 + 1];
 	int digit_1, digit_2, carry;
-	unsigned long i, j, k, start;
+	unsigned long i, j, k;
 
 	for (i = 0; i < len1 + len2; i++)
 		product[i] = '0' - 48;
