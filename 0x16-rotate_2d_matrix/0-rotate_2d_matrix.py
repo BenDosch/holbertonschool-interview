@@ -2,12 +2,10 @@
 """Module that rotates a 2d array (Matrix) clockwise."""
 
 
-def rotate_2d_matrix(matrix):
+def rotate_2d_matrix(m):
     """Function that rotates the 2d array matrix clockwise."""
-    temp = [[matrix[-(1 + col)][row] for col in range(len(matrix))]
-            for row in range(len(matrix[0]))]
-    matrix.clear()
-    [matrix.append(row) for row in temp]
+    t = [[m[-(1 + c)][r] for c in range(len(m))] for r in range(len(m[0]))]
+    [(m.pop(0), m.append(r)) for r in t]
 
 
 if __name__ == "__main__":
