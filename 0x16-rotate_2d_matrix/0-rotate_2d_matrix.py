@@ -4,8 +4,7 @@
 
 def rotate_2d_matrix(m):
     """Function that rotates the 2d array matrix clockwise."""
-    t = [[m[-(1 + c)][r] for c in range(len(m))] for r in range(len(m[0]))]
-    [(m.pop(0), m.append(r)) for r in t]
+    [(m.pop(0), m.append(list(r))) for r in list(zip(*m[::-1]))]
 
 
 if __name__ == "__main__":
