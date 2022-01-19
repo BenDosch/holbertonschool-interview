@@ -4,10 +4,10 @@
 /**
  * merge_sort - sorts array of ints in ascending order using Merge Sort
  *              algorithm.
- * 
+ *
  * @array: array
  * @size: size of array
- * 
+ *
  * Return: void
  */
 
@@ -25,11 +25,11 @@ void merge_sort(int *array, size_t size)
 }
 /**
  * TopDownSplitMerge - split merge
- * 
+ *
  * @left: left side array array
  * @right: right side array
  * @size: size of combined array
- * 
+ *
  * Return: void
  */
 
@@ -48,11 +48,11 @@ void TopDownSplitMerge(int left[], int right[], size_t size)
 }
 /**
  * merge - merges two subarrays
- * 
+ *
  * @left: left side array array
  * @right: right side array
  * @size: size of combined array
- * 
+ *
  * Return: void
  */
 
@@ -86,12 +86,12 @@ void merge(int left[], int right[], size_t size)
 }
 /**
  * CopyArray - makes a copy of an array
- * 
+ *
  * @dest: destination to copy too
  * @start: starting index
  * @end: ending index
  * @src: source array
- * 
+ *
  * Return: void
  */
 
