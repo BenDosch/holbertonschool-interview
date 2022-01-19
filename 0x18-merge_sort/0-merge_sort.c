@@ -100,5 +100,5 @@ void CopyArray(int *dest, int start, int end, int *src)
 	int i;
 
 	for (i = start; i < end; i++)
-		src[k] = dest[k];
+		src[i] = dest[i];
 }
