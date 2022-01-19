@@ -1,5 +1,6 @@
 #include "sort.h"
 
+
 /**
  * merge_sort - sorts array of ints in ascending order using Merge Sort
  *              algorithm.
@@ -81,7 +82,7 @@ void merge(int left[], int right[], size_t size)
 		left[i] = right[i];
 
 	printf("[Done]: ");
-	print_array(B, size);
+	print_array(right, size);
 }
 /**
  * CopyArray - makes a copy of an array
@@ -98,6 +99,6 @@ void CopyArray(int *dest, int start, int end, int *src)
 {
 	int i;
 
-	for (i = start; k < end; i++)
+	for (i = start; i < end; i++)
 		src[k] = dest[k];
 }
